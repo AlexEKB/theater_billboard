@@ -1,25 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<% if user_signed_in? %>
+  <h2>
+    <%= link_to 'Создать новую афишу', new_event_path %>
+  </h2>
+<% else %>
+  <%= 'Вы не похожи на администратора театра - Оксану Григорьевну, зарегистрируйтесь, чтобы создать событие' %>
+<% end %>
+
+<h1>Афиша</h1>
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @events.each do |event| %>
+    <div class="thumbnail-inner event-info-inner">
+      <div class="caption">
+        <div class="event-description">
+          <h3><%= link_to event.title, event_path(event) %></h3>
+          <h3>
+            <p>Дата начала <%= l event.started_at, format: :short %></p>
+            <p>Дата окончания <%= l event.end_at, format: :short %></p>
+          </h3>
+          <div>
+            <%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Event', new_event_path %>
