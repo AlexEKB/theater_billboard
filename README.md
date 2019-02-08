@@ -1,24 +1,11 @@
 # README
+Тестовое задание.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Cайт для, небольшого, провинциального театра. Город N, в котором находится театр маленький, публики не много, поэтому спектакли проводятся строго один раз в день, в 19:00.
+Нам прежде всего предстоит реализовать афишу. У нас есть администратор театра, Оксана Григорьевна, уважаемая женщина. Она и будет вносить расписание спектаклей.
+Спектакль характеризуется свойствами:
+Название
+Дата начала (19-02-2019)
+Дата окончания (21-03-2019)
+У нас методы create, index, delete.
+При добавлении нового спектакля, если у нас есть уже спектакль на эти даты - мы выводим ошибку.
